@@ -14,8 +14,8 @@ def cpu_check():
 def disc_space_check():  
   disk_usage = shutil.disk_usage("/")
   disk_total = disk_usage.total
-  disk_free = disk_usage.used
-  threshold = disk_free / disk_total * 100
+  disk_free = disk_usage.free
+  threshold = 100 * disk_free / disk_total
   return threshold > 20
 
 #Report an error if available memory is less than 500MB
